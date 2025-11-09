@@ -1,0 +1,175 @@
+---
+import Navigation from "../components/Navigation.astro";
+import "/src/styles/global.css";
+import bgVideo from "../assets/gojo-bg.mp4";
+import Avatar from "../assets/avatar.jpeg";
+import { Image } from "astro:assets";
+import Setup from "../assets/setup.png";
+const linkSmkn = "https://smkn1sumbawa.sch.id/";
+const username = "Rzfan03";
+const res = await fetch(`https://api.github.com/users/${username}`);
+const data = await res.json();
+---
+
+<Navigation />
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Rzfann</title>
+	</head>
+	<body class="p-5">
+		<section class="flex justify-center items-center">
+			<div class="relative w-full h-[200px] md:h-[400px]">
+				<video
+					class="absolute top-0 left-0 w-full h-full object-cover object-center"
+					autoplay
+					muted
+					loop
+				>
+					<source src={bgVideo} type="video/mp4" />
+				</video>
+
+				<div
+					class="absolute bottom-0 left-0 w-full h-40 md:h-full bg-gradient-to-t from-gray-950/80 to-transparent"
+				>
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-gray-950">
+			<div
+				class="flex items-center gap-2 md:gap-8 justify-center max-md:items-start mr-[560px] h-[200px] max-md:h-60 max-md:mr-6 max-md:ml-6 max-md:flex-col"
+			>
+				<div class="flex flex-col">
+					<Image
+						height={145}
+						src={Avatar}
+						class={"rounded-full border-5 max-md:h-30 mt-5 max-md:w-30 border-gray-800"}
+						alt={"avatar"}
+					/>
+				</div>
+				<div class="flex flex-col">
+					<p class="text-white text-3xl font-bold">Rzfan03</p>
+					<p class="text-sm text-gray-500">@Zennius!</p>
+					<p class="text-gray-300 text-sm mt-2">{data.bio}</p>
+				</div>
+			</div>
+			<!-- main page -->
+			<div
+				class="p-8 mx-auto ml-70 mr-60 max-md:ml-0 max-md:mr-2 border-b-2 border-gray-900"
+			>
+				<p class="text-white">
+					A Junior Frontend Developer passionate about creating
+					engaging and user-friendly web experiences, continuously
+					learning and improving skills."
+				</p>
+			</div>
+			<div
+				class="mx-auto ml-76 mt-5 mr-60 max-md:ml-8 max-md:mr-2 flex gap-8 max-md:gap-4 max-md:text-sm mb-5"
+			>
+				<div class="flex flex-col">
+					<p class="text-gray-500 text-md">Projects</p>
+					<p id="repo" class="text-white">{data.public_repos}</p>
+				</div>
+				<div class="flex flex-col">
+					<p class="text-gray-500 text-md">Followers</p>
+					<p id="repo" class="text-white">{data.followers}</p>
+				</div>
+				<div class="flex flex-col">
+					<p class="text-gray-500 text-md">Joined</p>
+					<p id="repo" class="text-white">
+						{data.created_at.substring(0, 4)}
+					</p>
+				</div>
+			</div>
+			<!--about page  -->
+			<div
+				id="about"
+				class="mx-auto mt-16 ml-76 mr-60 max-md:ml-8 max-md:mr-2 flex justify-start items-center gap-8 max-md:gap-4 max-md:text-sm mb-5"
+			>
+				<p class="text-white font-bold text-3xl mr-2">About Me</p>
+			</div>
+			<div
+				class="mx-auto text-left max-w-4xl max-md:ml-3 max-md:mr-4 px-4 glass-effect pt-5 rounded-md"
+			>
+				<p class="text-white mb-5">
+					Hi, I'm <span class="text-orange-300"
+						>Rizqy Fajrul Syabani</span
+					>, a 16-year-old <span class="text-orange-300"
+						>Junior Frontend Developer</span
+					> from Indonesia with a deep passion for crafting interactive
+					and user-friendly web experiences. Ever since I started exploring
+					web development, I have been fascinated by the process of turning
+					ideas into functional and visually appealing applications. I
+					am currently studying at <span class="text-orange-300"
+						><a
+							href={linkSmkn}
+							target="_blank"
+							class="hover:underline">SMKN 1 Sumbawa Besar</a
+						></span
+					>, where I am developing a solid foundation in technology
+					and software development. Alongside my studies, I dedicate
+					time to personal projects, experimenting with frontend
+					techniques, improving my coding skills, and learning best
+					practices in building modern web interfaces. Beyond web
+					development, I am a Linux enthusiast 🐧. I enjoy customizing
+					my system, tweaking dotfiles, and optimizing my workflow to
+					maximize productivity and efficiency. This curiosity for
+					technology drives me to explore new tools, understand how
+					they work, and make them fit my personal development style.
+					I am motivated by creativity, problem-solving, and
+					continuous learning. I strive to grow as a developer,
+					contribute to the community, and one day create digital
+					solutions that are not only functional but also meaningful
+					and accessible to users.
+				</p>
+			</div>
+			<!-- end about -->
+
+			<!-- my setup 👅 -->
+			<div
+				id="about"
+				class="mx-auto mt-16 ml-76 mr-60 max-md:ml-8 max-md:mr-2 flex justify-start items-center gap-8 max-md:gap-4 max-md:text-sm mb-5"
+			>
+				<p class="text-white font-bold text-3xl mr-2">My Setup</p>
+			</div>
+			<div class="mx-auto text-left max-w-4xl max-md:ml-3 max-md:mr-4 px-4 glass-effect pt-5 rounded-md">
+				<div class="absolute h-122 max-md:h-50 hover:hidden transition-all rounded-sm bg-gradient-to-t from-gray-950/80 to-transparent  max-md:w-86 w-225">
+					<div class="flex h-150 max-md:h-50 justify-center items-center">
+						<p class="text-white text-3xl max-md:text-sm"><span class="text-lime-200">Omarchy</span> + Hyprland </p></div>
+					</div>
+				<Image src={Setup} alt={'setup'} class={'rounded-sm mb-5 transition-all cursor-pointer'}/>
+			</div>
+			<div class="flex justify-center items-center text-sm mt-8 mb-5">
+				<a href="https://github.com/Rzfan03/Rzfan-Dotfiles" target="_blank" class="text-gray-600 cursor-pointer hover:underline">Want to my I3wm Dotfiles?</a>
+			</div>
+			<div class="mx-auto text-left max-w-4xl px-4 pt-5 mt-5 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
+    <div class="grid grid-cols-4 gap-4 md:grid-cols-4 max-md:text-sm sm:grid-cols-4 ml-5 mr-5 mb-5">
+        <div class="flex flex-col mt-2">
+            <p class="text-gray-300">DISTRO</p>
+            <p class="text-lime-200">Omarchy</p>
+        </div>
+        <div class="flex flex-col mt-2">
+            <p class="text-gray-300">DEVICE</p>
+            <p class="text-white">Advan Workpro</p>
+        </div>
+        <div class="flex flex-col mt-2">
+            <p class="text-gray-300">CPU</p>
+            <p class="text-white">i5-12450H</p>
+        </div>
+        <div class="flex flex-col mt-2">
+            <p class="text-gray-300">WM</p>
+            <p class="text-white">Hyprland</p>
+        </div>
+    </div>
+</div>
+
+<div id="projects" class="flex justify-center items-center text-gray-700 mt-8 p-8">
+	<h1>Coming Soon</h1>
+</div>
+
+		</section>
+	</body>
+</html>
