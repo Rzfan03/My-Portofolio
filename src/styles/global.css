@@ -1,9 +1,17 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 *{
     font-family: 'JetBrains Mono', monospace;
     scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a; /* sama kayak tema dark kamu */
+  overflow-x: hidden;
 }
 
 
@@ -91,6 +99,12 @@
 
 .glass-effect {
     background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-bg {
+    background: oklch(12.9% 0.042 264.695);
     backdrop-filter: blur(16px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
