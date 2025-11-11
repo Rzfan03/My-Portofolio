@@ -1,8 +1,19 @@
 ---
 import '/src/styles/global.css'
+import { ClientRouter } from "astro:transitions";
 ---
 
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+
+<!-- mobile navbar -->
+ <nav class="navbar hidden max-md:flex fixed top-6 right-5 z-50 w-auto rounded-md">
+    <div class="rounded-md flex justify-end items-end">
+<button onclick="mobileToggle()"><i class="ri-menu-4-line text-white"></i></button>
+    </div>
+</nav>
+
+
 
 <nav class="navbar max-md:hidden fixed top-8 left-1/2 transform -translate-x-1/2 z-50 w-auto rounded-md">
         <div
@@ -25,3 +36,22 @@ import '/src/styles/global.css'
             </div>
             </div>
         </nav>
+        <script>
+  import { animate, stagger, inView } from "motion";
+
+inView(
+  ".navbar",
+  (element) => {
+    animate(element, { opacity: [0.5, 1], y: [-20, 0] }, { ease: [0.39, 0.24, 0.3, 1], duration: 1 });
+
+    const cards = element.querySelectorAll(".card-projects");
+    if (cards.length > 0) {
+      animate(cards, { opacity: [0, 1], y: [25, 0] }, { type: "spring", delay: stagger(0.25, { startDelay: 0.25 }) });
+    }
+  },
+  { amount: 0.25 }
+);
+</script>
+
+        <ClientRouter/>
+
