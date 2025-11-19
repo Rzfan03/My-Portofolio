@@ -6,9 +6,9 @@ import Avatar from "../assets/avatar.jpeg";
 import { Image } from "astro:assets";
 import Setup from "../assets/setup.png";
 const linkSmkn = "https://smkn1sumbawa.sch.id/";
-const username = "Rzfan03";
-const res = await fetch(`https://api.github.com/users/${username}`);
-const data = await res.json();
+// const username = "Rzfan03";
+// const res = await fetch(`https://api.github.com/users/${username}`);
+// const data = await res.json();
 ---
 
 
@@ -52,7 +52,7 @@ const data = await res.json();
 				<div class="flex flex-col scrolling-section">
 					<p class="text-white text-3xl font-bold">Rzfan03</p>
 					<p class="text-sm text-gray-500">@Zennius!</p>
-					<p class="text-gray-300 text-sm mt-2">{data.bio}</p>
+					<!-- <p class="text-gray-300 text-sm mt-2">{data.bio}</p> -->
 				</div>
 			</div>
 			<!-- main page -->
@@ -70,28 +70,28 @@ const data = await res.json();
 			>
 				<div class="flex flex-col">
 					<p class="text-gray-500 text-md">Projects</p>
-					<p id="repo" class="text-white">{data.public_repos}</p>
+					<!-- <p id="repo" class="text-white">{data.public_repos}</p> -->
 				</div>
 				<div class="flex flex-col">
 					<p class="text-gray-500 text-md">Followers</p>
-					<p id="repo" class="text-white">{data.followers}</p>
+					<!-- <p id="repo" class="text-white">{data.followers}</p> -->
 				</div>
 				<div class="flex flex-col">
 					<p class="text-gray-500 text-md">Joined</p>
 					<p id="repo" class="text-white">
-						{data.created_at.substring(0, 4)}
+						<!-- {data.created_at.substring(0, 4)} -->
 					</p>
 				</div>
 			</div>
 			<!--about page  -->
 			<div
 				id="about"
-				class="about-page scrolling-section mx-auto mt-16 ml-76 mr-60 max-md:ml-8 max-md:mr-2 flex justify-start max-md:justify-center items-center gap-8 max-md:gap-4 max-md:text-sm mb-5"
+				class="about-page mx-auto mt-16 ml-76 mr-60 max-md:ml-8 max-md:mr-2 flex justify-start max-md:justify-center items-center gap-8 max-md:gap-4 max-md:text-sm mb-5"
 			>
 				<p class="text-white font-bold text-3xl mr-2">About Me</p>
 			</div>
 			<div
-				class="mx-auto text-left scrolling-section max-w-4xl max-md:ml-4 max-md:mr-4 px-4 glass-effect pt-5 rounded-md"
+				class="mx-auto text-left max-w-4xl max-md:ml-4 max-md:mr-4 px-4 glass-effect pt-5 rounded-md"
 			>
 				<p class="text-white mb-5">
 					Hi, I'm <span class="text-lime-200"
@@ -130,12 +130,12 @@ const data = await res.json();
 			<!-- my setup 👅 -->
 			<div
 				id="about"
-				class="mx-auto scrolling-section mt-16 ml-76 mr-60 max-md:ml-8 max-md:mr-2 flex max-md:justify-center justify-start items-center gap-8 max-md:gap-4 max-md:text-sm mb-5"
+				class="mx-auto  mt-16 ml-76 mr-60 max-md:ml-8 max-md:mr-2 flex max-md:justify-center justify-start items-center gap-8 max-md:gap-4 max-md:text-sm mb-5"
 			>
 				<p class="text-white font-bold text-3xl mr-2">My Setup</p>
 			</div>
-			<div class="mx-auto text-left max-w-4xl scrolling-section max-md:ml-3 max-md:mr-4 px-4 glass-effect pt-5 rounded-md">
-				<div class="absolute h-122 max-md:h-50 hover:hidden transition-all rounded-sm bg-gradient-to-t from-gray-950/80 to-transparent  max-md:w-86 w-225">
+			<div class="mx-auto text-left max-w-4xl max-md:ml-3 max-md:mr-4 px-4 glass-effect pt-5 rounded-md">
+				<div class="absolute h-122 max-md:h-50 transition-all rounded-sm bg-gradient-to-t from-gray-950/80 to-transparent  max-md:w-88 w-225">
 					<div class="flex h-150 max-md:h-50 justify-center items-center">
 						<p class="text-white text-3xl max-md:text-sm"><span class="text-lime-200">Omarchy</span> + Hyprland </p></div>
 					</div>
@@ -145,7 +145,7 @@ const data = await res.json();
 				<a href="https://github.com/Rzfan03/Rzfan-Dotfiles" target="_blank" class="text-gray-600 cursor-pointer hover:underline">Want to my I3wm Dotfiles?</a>
 			</div>
 			<div class="mx-auto text-left max-w-4xl px-4 pt-5 mt-5 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
-    <div class="grid grid-cols-4 gap-4 scrolling-section md:grid-cols-4 max-md:text-sm sm:grid-cols-4 ml-5 mr-5 mb-5">
+    <div class="grid grid-cols-4 gap-4  md:grid-cols-4 max-md:text-sm sm:grid-cols-4 ml-5 mr-5 mb-5">
         <div class="flex flex-col mt-2">
             <p class="text-gray-300 text-sm">DISTRO</p>
             <p class="text-lime-200 text-xs">Omarchy</p>
@@ -168,7 +168,7 @@ const data = await res.json();
 				<a class="text-gray-600 text-sm text-center ml-4 mr-5">My Omarchy Setup with Hyprland and Catpuccin Theme</a>
 			</div>
 
-<div id="hehe" class="flex justify-center scrolling-section flex-col text-gray-700 mt-2 p-8">
+<div id="hehe" class="flex justify-center flex-col text-gray-700 mt-2 p-8">
 	<div class="grid-cols-8 gap-2">
 		<div class="mx-auto text-left max-w-4xl px-4 pt-5 mt-5 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
 			<div class="flex justify-center items-center mb-5 transition-all cursor-pointer">
@@ -267,7 +267,7 @@ const data = await res.json();
 <!-- end Tech Stack -->
 
 <!-- Work with -->
-<div class="mx-65 text-left max-w-4xl scrolling-section px-4 pt-5 mt-5 glass-bg rounded-md max-md:ml-3 max-md:mr-4">
+<div class="mx-65 text-left max-w-4xl  px-4 pt-5 mt-5 glass-bg rounded-md max-md:ml-3 max-md:mr-4">
 	<div class="p-2 flex flex-col justify-center items-center">
 		<div>
 			<p class="text-2xl font-bold text-white">Work With Me</p>
@@ -284,7 +284,7 @@ const data = await res.json();
 <!-- end work with me -->
 
 <!-- Projects page -->
-<section id="projects" class="mt-16 scrolling-section">
+<section id="projects" class="mt-16">
 	<div class="flex justify-center flex-col items-center" id="card-projects">
 		<div class="text-center">
 			<h1 class="text-white text-3xl font-bold mb-2">My Projects</h1>
@@ -345,7 +345,7 @@ const data = await res.json();
 
 
 
-<section id="contact" class="mt-16 scrolling-section">
+<section id="contact" class="mt-16">
 	<div class="flex justify-center flex-col items-center" id="card-projects">
 		<div class="text-center">
 			<h1 class="text-white text-3xl font-bold mb-2">Get in Touch</h1>
@@ -444,7 +444,7 @@ const data = await res.json();
 </div>
 </section>
 
-<div class="mx-auto text-left scrolling-section max-w-full px-81 max-md:px-6 pt-5 mt-8 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
+<div class="mx-auto text-left max-w-full px-81 max-md:px-6 pt-5 mt-8 glass-effect rounded-md max-md:ml-3 max-md:mr-4">
     <div class="flex flex-col justify-center items-center mb-5 transition-all cursor-pointer">
         <h1 class="text-lg text-white mb-2">Available to Work</h1>
         <p class="text-white text-center max-w-xl">
