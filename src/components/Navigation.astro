@@ -1,57 +1,113 @@
 ---
-import '/src/styles/global.css'
+import "/src/styles/global.css";
 import { ClientRouter } from "astro:transitions";
 ---
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+/>
 
 <!-- mobile navbar -->
- <nav class="hidden max-md:flex fixed top-6 right-5 z-50 w-auto rounded-md">
-    <div class="rounded-md flex justify-end items-end">
-<button onclick="mobileToggle()" class="cursor-pointer"><i class="ri-menu-4-line text-white text-3xl"></i></button>
-    </div>
+<nav class="hidden max-md:flex fixed top-6 right-5 z-50 w-auto rounded-md">
+  <div class="rounded-md flex justify-end items-end">
+    <button class="cursor-pointer alert"
+      ><i class="ri-menu-4-line text-white text-3xl"></i></button
+    >
+  </div>
 </nav>
 
+<div
+  id="mobile-bar"
+  class="md:hidden sm:hidden fixed h-screen w-full glass-bg z-10 transform transition-transform duration-300 -translate-x-full"
+>
+  <div class="flex flex-col justify-center items-center mt-16 gap-6 text-white">
+    <a href="/">/Home</a>
+    <a href="#about">/About</a>
+    <a href="#projects">/Projects</a>
+    <a href="#contact">/Contact</a>
+  </div>
+</div>
 
+<nav
+  class="navbar max-md:hidden fixed top-8 left-1/2 transform -translate-x-1/2 z-50 w-auto rounded-md"
+>
+  <div
+    class="flex items-center justify-between gap-8 bg-transparent glass-effect rounded-md px-8 py-4 max-md:h-14 border border-gray-700/50"
+  >
+    <div class="flex items-center">
+      <i class="ri-terminal-line mr-5 max-md:ml-5 text-md text-white"></i>
+      <p class="text-white">Rzfan03</p>
+    </div>
+    <div>
+      <button
+        ><i class="ri-menu-4-line text-lg text-white ml-4 mr-4 md:hidden"
+        ></i></button
+      >
+    </div>
+    <div class="text-sm ml-2 max-md:hidden">
+      <a
+        href="/"
+        class="text-gray-400 hover:underline hover:text-white transition-all"
+        >/home</a
+      >
+      <a
+        href="#about"
+        class="text-gray-400 hover:underline hover:text-white transition-all"
+        >/about</a
+      >
+      <a
+        href="#projects"
+        class="text-gray-400 hover:underline hover:text-white transition-all"
+        >/projects</a
+      >
+      <a
+        href="#contact"
+        class="text-gray-400 hover:underline hover:text-white transition-all"
+        >/contact</a
+      >
+    </div>
+    <div>
+      <a href="https://github.com/Rzfan03" target="_blank"
+        ><i class="ri-github-fill text-white text-2xl max-md:hidden"></i></a
+      >
+    </div>
+  </div>
+</nav>
+<script>
+const buttons = document.querySelectorAll("button.alert");
 
-<nav class="navbar max-md:hidden fixed top-8 left-1/2 transform -translate-x-1/2 z-50 w-auto rounded-md">
-        <div
-            class="flex items-center justify-between gap-8 bg-transparent glass-effect rounded-md px-8 py-4 max-md:h-14 border border-gray-700/50">
-            <div class="flex items-center">
-                <i class="ri-terminal-line mr-5 max-md:ml-5 text-md text-white"></i>
-                <p class="text-white">Rzfan03</p>
-            </div>
-            <div>
-                <button><i class="ri-menu-4-line text-lg text-white ml-4 mr-4 md:hidden"></i></button>
-            </div>
-            <div class="text-sm ml-2 max-md:hidden">
-                <a href="/" class="text-gray-400 hover:underline hover:text-white transition-all">/home</a>
-                <a href="#about" class="text-gray-400 hover:underline hover:text-white transition-all">/about</a>
-                <a href="#projects" class="text-gray-400 hover:underline hover:text-white transition-all">/projects</a>
-                <a href="#contact" class="text-gray-400 hover:underline hover:text-white transition-all">/contact</a>
-            </div>
-            <div>
-                <a href="https://github.com/Rzfan03" target="_blank"><i class="ri-github-fill text-white text-2xl max-md:hidden"></i></a>
-            </div>
-            </div>
-        </nav>
-        <script>
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const mobileBar = document.getElementById("mobile-bar");
+    
+    // Toggle translate untuk slide animation
+    mobileBar.classList.toggle("-translate-x-full");
+    mobileBar.classList.toggle("translate-x-0");
+  });
+});
   import { animate, stagger, inView } from "motion";
 
-inView(
-  ".navbar",
-  (element) => {
-    animate(element, { opacity: [0.5, 1], y: [-20, 0] }, { ease: [0.39, 0.24, 0.3, 1], duration: 1 });
+  inView(
+    ".navbar",
+    (element) => {
+      animate(
+        element,
+        { opacity: [0.5, 1], y: [-20, 0] },
+        { ease: [0.39, 0.24, 0.3, 1], duration: 1 },
+      );
 
-    const cards = element.querySelectorAll(".card-projects");
-    if (cards.length > 0) {
-      animate(cards, { opacity: [0, 1], y: [25, 0] }, { type: "spring", delay: stagger(0.25, { startDelay: 0.25 }) });
-    }
-  },
-  { amount: 0.25 }
-);
+      const cards = element.querySelectorAll(".card-projects");
+      if (cards.length > 0) {
+        animate(
+          cards,
+          { opacity: [0, 1], y: [25, 0] },
+          { type: "spring", delay: stagger(0.25, { startDelay: 0.25 }) },
+        );
+      }
+    },
+    { amount: 0.25 },
+  );
 </script>
 
-        <ClientRouter/>
-
+<ClientRouter />

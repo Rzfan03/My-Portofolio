@@ -104,7 +104,7 @@ html, body {
 }
 
 .glass-bg {
-    background: oklch(12.9% 0.042 264.695);
+    background: oklch(3.038% 0.02105 264.073 / 0.811);
     backdrop-filter: blur(16px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
