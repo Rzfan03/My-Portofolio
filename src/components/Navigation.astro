@@ -8,8 +8,11 @@ import { ClientRouter } from "astro:transitions";
   href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
 />
 
+
+
+<!-- V1 -->
 <!-- mobile navbar -->
-<nav class="hidden max-md:flex fixed top-6 right-5 z-50 w-auto rounded-md">
+<!-- <nav class="hidden max-md:flex fixed top-6 right-5 z-50 w-auto rounded-md">
   <div class="rounded-md flex justify-end items-end">
     <button class="cursor-pointer alert"
       ><i class="ri-menu-4-line text-white text-3xl"></i></button
@@ -27,7 +30,31 @@ import { ClientRouter } from "astro:transitions";
     <a href="#projects">/Projects</a>
     <a href="#contact">/Contact</a>
   </div>
-</div>
+</div> -->
+
+<!-- V2 -->
+<nav id="mobile-bottom-nav" class="fixed bottom-0 left-0 right-0 z-50 md:hidden transform transition-transform duration-300 translate-y-full">
+  <div class="glass-effect border-t rounded-t-3xl border-gray-700/50">
+    <div class="flex justify-around items-center py-3">
+      <a href="/" class="flex flex-col items-center text-white transition-all hover:text-blue-400">
+        <i class="ri-home-4-line text-xl"></i>
+        <span class="text-xs mt-1">Home</span>
+      </a>
+      <a href="#about" class="flex flex-col items-center text-white transition-all hover:text-blue-400">
+        <i class="ri-user-line text-xl"></i>
+        <span class="text-xs mt-1">About</span>
+      </a>
+      <a href="#projects" class="flex flex-col items-center text-white transition-all hover:text-blue-400">
+        <i class="ri-briefcase-line text-xl"></i>
+        <span class="text-xs mt-1">Projects</span>
+      </a>
+      <a href="#contact" class="flex flex-col items-center text-white transition-all hover:text-blue-400">
+        <i class="ri-contacts-line text-xl"></i>
+        <span class="text-xs mt-1">Contact</span>
+      </a>
+    </div>
+  </div>
+</nav>
 
 <nav
   class="navbar max-md:hidden fixed top-8 left-1/2 transform -translate-x-1/2 z-50 w-auto rounded-md"
@@ -74,18 +101,71 @@ import { ClientRouter } from "astro:transitions";
     </div>
   </div>
 </nav>
-<script>
-const buttons = document.querySelectorAll("button.alert");
 
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const mobileBar = document.getElementById("mobile-bar");
+<script is:inline>
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileBottomNav = document.getElementById('mobile-bottom-nav');
+  const menuButton = document.querySelector('button.alert');
+  let lastScrollY = window.scrollY;
+  let isNavVisible = false;
+
+  // Show/hide navbar on scroll
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
     
-    // Toggle translate untuk slide animation
-    mobileBar.classList.toggle("-translate-x-full");
-    mobileBar.classList.toggle("translate-x-0");
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      // Scroll down - hide navbar
+      mobileBottomNav.classList.add('translate-y-full');
+      isNavVisible = false;
+    } else {
+      // Scroll up - show navbar
+      mobileBottomNav.classList.remove('translate-y-full');
+      isNavVisible = true;
+    }
+    
+    lastScrollY = currentScrollY;
+  });
+
+  // Menu button click untuk show/hide navbar
+  menuButton.addEventListener('click', () => {
+    if (isNavVisible) {
+      mobileBottomNav.classList.add('translate-y-full');
+      isNavVisible = false;
+    } else {
+      mobileBottomNav.classList.remove('translate-y-full');
+      isNavVisible = true;
+    }
+  });
+
+  // Smooth scroll untuk anchor links
+  document.querySelectorAll('#mobile-bottom-nav a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        // Hide navbar setelah klik link
+        setTimeout(() => {
+          mobileBottomNav.classList.add('translate-y-full');
+          isNavVisible = false;
+        }, 500);
+      }
+    });
   });
 });
+</script>
+
+
+
+
+
+<script>
   import { animate, stagger, inView } from "motion";
 
   inView(
