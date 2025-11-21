@@ -6,9 +6,9 @@ import Avatar from "../assets/avatar.jpeg";
 import { Image } from "astro:assets";
 import Setup from "../assets/setup.png";
 const linkSmkn = "https://smkn1sumbawa.sch.id/";
-// const username = "Rzfan03";
-// const res = await fetch(`https://api.github.com/users/${username}`);
-// const data = await res.json();
+const username = "Rzfan03";
+const res = await fetch(`https://api.github.com/users/${username}`);
+const data = await res.json();
 ---
 
 
@@ -52,7 +52,7 @@ const linkSmkn = "https://smkn1sumbawa.sch.id/";
 				<div class="flex flex-col scrolling-section">
 					<p class="text-white text-3xl font-bold">Rzfan03</p>
 					<p class="text-sm text-gray-500">@Zennius!</p>
-					<!-- <p class="text-gray-300 text-sm mt-2">{data.bio}</p> -->
+					<p class="text-gray-300 text-sm mt-2">{data.bio}</p>
 				</div>
 			</div>
 			<!-- main page -->
@@ -70,16 +70,16 @@ const linkSmkn = "https://smkn1sumbawa.sch.id/";
 			>
 				<div class="flex flex-col">
 					<p class="text-gray-500 text-md">Projects</p>
-					<!-- <p id="repo" class="text-white">{data.public_repos}</p> -->
+					<p id="repo" class="text-white">{data.public_repos}</p>
 				</div>
 				<div class="flex flex-col">
 					<p class="text-gray-500 text-md">Followers</p>
-					<!-- <p id="repo" class="text-white">{data.followers}</p> -->
+					<p id="repo" class="text-white">{data.followers}</p>
 				</div>
 				<div class="flex flex-col">
 					<p class="text-gray-500 text-md">Joined</p>
 					<p id="repo" class="text-white">
-						<!-- {data.created_at.substring(0, 4)} -->
+						{data.created_at.substring(0, 4)}
 					</p>
 				</div>
 			</div>
