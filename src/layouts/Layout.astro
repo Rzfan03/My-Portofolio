@@ -2,7 +2,6 @@
 import "../styles/global.css";
 import { ClientRouter, fade, slide } from "astro:transitions";
 import bgVideo from "../assets/gojo-bg.mp4";
-import Avatar from "../assets/avatar.jpeg";
 import { Image } from "astro:assets";
 import Setup from "../assets/setup.png";
 const linkSmkn = "https://smkn1sumbawa.sch.id/";
@@ -44,7 +43,7 @@ const data = await res.json();
 				<div class="flex flex-col scrolling-section">
 					<Image
 						height={145}
-						src={data.avatar_url}
+						src={Avatar}
 						class={"rounded-full border-5 max-md:h-30 mt-5 max-md:w-30 border-gray-800"}
 						alt={"avatar"}
 					/>
