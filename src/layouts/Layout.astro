@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import { ClientRouter, fade, slide } from "astro:transitions";
-import bgVideo from "../assets/gojo-bg.mp4";
+import bgVideo from "../assets/furina.mp4";
 import { Image } from "astro:assets";
 import Setup from "../assets/setup.png";
 const linkSmkn = "https://smkn1sumbawa.sch.id/";
@@ -233,14 +233,15 @@ const data = await res.json();
 		<div class="flex gap-3">
 			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Javascript</p>
 			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Python</p>
-			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">C</p>
 		</div>
 			</div>
 			<div class="flex items-center gap-3 mb-5 max-md:flex-col max-md:justify-center max-md:items-center">
 				<p class="text-indigo-500 text-1xl">Frontend</p>
 		<div class="flex gap-3">
 			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">TailwindCSS</p>
-			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Astro.js</p>
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">Astro</p>
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">React</p>
+			<p class="text-white rounded-full text-sm glass-effect px-3 py-2">NextJS</p>
 			<!-- <p class="text-white rounded-full text-sm glass-effect px-3 py-2">Bootstrap</p> -->
 		</div>
 			</div>
@@ -276,8 +277,8 @@ const data = await res.json();
 			<p class="text-sm text-center mt-2">I enjoy contributing to projects that challenge me and help bring ideas to life.</p>
 		</div>
 		<div class="flex mt-8 mb-6 gap-3 max-md:flex-col">
-			<button class="bg-indigo-200 py-3 px-3 rounded-full text-sm cursor-pointer transition hover:bg-indigo-300">Get in Touch</button>
-			<button class="bg-gray-900 text-gray-400 py-3 px-3 rounded-full text-sm transition hover:text-indigo-300">View Github</button>
+			<button class="bg-indigo-200 py-3 px-3 rounded-full text-sm cursor-pointer transition hover:bg-indigo-300"><a href="#contact">Get in touch</a></button>
+			<button class="bg-gray-900 text-gray-400 py-3 px-3 rounded-full text-sm transition hover:text-indigo-300"><a href="https://github.com/Rzfan03">View Github</a></button>
 		</div>
 	</div>
 </div>
@@ -354,7 +355,6 @@ const data = await res.json();
 		<div class="grid grid-cols-3 max-md:grid-cols-1 gap-3">
 			<!-- Card Projects -->
 			 <div class="px-4 md:w-100 py-6 flex flex-col text-gray-200 mt-16 rounded-md border-2 border-gray-900 hover:border-gray-500 transition">
-				<a href=""></a>
     <div class="flex justify-between items-center">
         <div class="flex items-center">
             <i class="ri-mail-line mr-3 px-2 py-1 rounded-md bg-indigo-900 text-lg text-indigo-300"></i>
