@@ -7,5 +7,9 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   output: "server",
-  adapter: netlify()
+  adapter: netlify(),
+  
+  image: {
+    domains: ["avatars.githubusercontent.com"]
+  },
 });
